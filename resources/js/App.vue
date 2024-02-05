@@ -19,26 +19,24 @@
             </div>
         </div>
         <transition
-          enter-active-class="duration-300 ease-out"
-          enter-from-class="collapse w-0"
-          enter-to-class="visible"
-          leave-active-class="duration-300 ease-in"
-          leave-from-class="visible"
-          leave-to-class="collapse w-0"
+            enter-from-class="translate-x-[-100%] opacity-0"
+            leave-to-class="translate-x-[-100%] opacity-0"
+            enter-active-class="transition duration-500"
+            leave-active-class="transition duration-500"
         >
           <div
-            class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200 overflow-hidden"
+            class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200"
             v-if="sidebarOpen"
           >
-          <div class="text-center truncate">
+            <div class="text-center">
               <div class="my-4" v-if="sidebarOpen">
                   test sidebar
               </div>
               <div class="my-4" v-if="sidebarOpen">
                   test sidebar
               </div>
+            </div>
           </div>
-        </div>
         </transition>
         <div class="grid grid-cols-3 gap-16 my-32">
             <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
