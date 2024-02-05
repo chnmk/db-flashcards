@@ -6,6 +6,7 @@
                     class="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"
+                    @click="sidebarOpen = !sidebarOpen"
                     >
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                     <path
@@ -17,33 +18,45 @@
                 test
             </div>
         </div>
-        <div class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200">
-            <div class="text-center">
-                <div class="my-4">
-                    test sidebar
-                </div>
-                <div class="my-4">
-                    test sidebar
-                </div>
-            </div>
+        <transition
+          enter-active-class="duration-300 ease-out"
+          enter-from-class="collapse w-0"
+          enter-to-class="visible"
+          leave-active-class="duration-300 ease-in"
+          leave-from-class="visible"
+          leave-to-class="collapse w-0"
+        >
+          <div
+            class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200 overflow-hidden"
+            v-if="sidebarOpen"
+          >
+          <div class="text-center truncate">
+              <div class="my-4" v-if="sidebarOpen">
+                  test sidebar
+              </div>
+              <div class="my-4" v-if="sidebarOpen">
+                  test sidebar
+              </div>
+          </div>
         </div>
+        </transition>
         <div class="grid grid-cols-3 gap-16 my-32">
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2">
+            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
                 <div class="text-xl text-center p-16">
                     test1
                 </div>
             </div>
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2">
+            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
                 <div class="text-xl text-center p-16">
                     test2
                 </div>
             </div>
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2">
+            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
                 <div class="text-xl text-center p-16">
                     test3
                 </div>
             </div>
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2">
+            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
                 <div class="text-xl text-center p-16">
                     test4
                 </div>
@@ -51,10 +64,13 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
-  setup() {
-
+  data() {
+    return {
+        sidebarOpen: false
     }
+  }
 }
 </script>
