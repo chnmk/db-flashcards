@@ -23,28 +23,25 @@
             </div>
         </transition>
         <div class="grid grid-cols-3 gap-16 my-32">
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
-                <div class="text-xl text-center p-16">sample text</div>
-            </div>
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
-                <div class="text-xl text-center p-16">sample text</div>
-            </div>
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
-                <div class="text-xl text-center p-16">sample text</div>
-            </div>
-            <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
-                <div class="text-xl text-center p-16">sample text</div>
-            </div>
+            <SingleDatacard />
+            <SingleDatacard />
+            <SingleDatacard />
+            <SingleDatacard />
         </div>
     </div>
 </template>
 
 <script>
+import SingleDatacard from './components/SingleDatacard.vue'
+
 export default {
     data() {
         return {
             sidebarOpen: false,
         };
     },
+    components: {
+        SingleDatacard
+    }
 };
 </script>
