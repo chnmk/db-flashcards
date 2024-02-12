@@ -1,25 +1,31 @@
 <template>
-    <div class="bg-emerald-200 hover:bg-emerald-500 col-start-2 transition duration-300 ease-in-out">
-        <div class="text-xl text-center p-16">
-            <h1>
-                <strong>{{ Name }}</strong>
-            </h1>
-            <p>
-                {{ Description }}
-            </p>
-            <p v-for="tag in Tags" :key="tag">
-                {{ tag }}
-            </p>
-            <dl v-for="dl in Contents" :key="dl.Category">
-                <dt>
-                    <strong>
-                        {{ dl.Category }}
-                    </strong>
-                </dt>
-                <dd v-for="entry in dl.Entries" :key="entry">
-                    {{ entry }}
-                </dd>
-            </dl>
+    <div class="h-72 col-start-4 col-span-6 bg-emerald-200 hover:bg-emerald-500 transition duration-300 ease-in-out">
+        <div>
+            <div
+                class="my-4 mx-8 py-2 max-h-28 overflow-scroll hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">
+                <h1 class="text-center text-lg">
+                    <strong>{{ Name }}</strong>
+                </h1>
+                <p class="mx-2 py-2">
+                    {{ Description }}
+                </p>
+                <span v-for=" tag in Tags" :key="tag" class="mx-2 text-gray-500">
+                    #{{ tag }}
+                </span>
+            </div>
+            <div
+                class="my-4 mx-8 py-2 max-h-28 overflow-scroll hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">
+                <dl v-for="dl in Contents" :key="dl.Category" class="my-2">
+                    <dt class="mx-2">
+                        <strong>
+                            {{ dl.Category }}
+                        </strong>
+                    </dt>
+                    <dd v-for="entry in dl.Entries" :key="entry" class="mx-8">
+                        {{ entry }}
+                    </dd>
+                </dl>
+            </div>
         </div>
     </div>
 </template>
