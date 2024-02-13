@@ -1,5 +1,6 @@
 <template>
-    <div class="h-72 col-start-4 col-span-6 bg-emerald-200 hover:bg-emerald-500 transition duration-300 ease-in-out">
+    <div
+        class="w-96 sm:w-144 h-72 col-start-4 col-span-6 bg-emerald-200 hover:bg-emerald-500 transition duration-300 ease-in-out">
         <div>
             <div
                 class="my-4 mx-8 py-2 max-h-28 overflow-scroll hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">

@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-12 gap-16 my-32">
+    <div class="flex flex-col items-center gap-16 my-32">
         <!--
             Return
             Name

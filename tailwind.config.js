@@ -3,7 +3,11 @@ export default {
   content: ['./index.html', './resources/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: 'media',
   theme: {
-    extend: {},
+    extend: {
+        spacing: {
+            '144': '36rem',
+          }
+    },
   },
   variants: {
       extend: {},
