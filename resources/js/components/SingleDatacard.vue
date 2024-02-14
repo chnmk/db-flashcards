@@ -33,10 +33,7 @@
 
 <script>
 export default {
-    props: ['Name', 'Description', 'Tags', 'Contents'],
-    mounted() {
-        console.log(this.Contents)
-    }
+    props: ['Name', 'Description', 'Tags', 'Contents']
 }
 </script>
 

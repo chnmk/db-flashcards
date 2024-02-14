@@ -1,11 +1,5 @@
 <template>
     <div class="flex flex-col items-center gap-16 my-32">
-        <!--
-            Return
-            Name
-            Description
-            Tags
-        -->
         <SingleDatacard v-for="card in cards" :key="card.Name" :Name="card.Name" :Description="card.Description"
             :Tags="card.Tags" :Contents="card.Contents" />
     </div>
