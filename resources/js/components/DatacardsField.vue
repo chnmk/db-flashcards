@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col items-center gap-16 my-32">
-        <SingleDatacard v-for="c in cards" :key="c.Name" :Name="card.Name" :Description="card.Description" :Tags="card.Tags"
-            :Contents="card.Contents" />
+        <SingleDatacard v-for="c in getCards[0]" :key="c.Name" :Name="c.Name" :Description="c.Description" :Tags="c.Tags"
+            :Contents="c.Contents" />
     </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
         SingleDatacard
     },
     computed: {
-        ...mapState(useCollectionsStore, ['collections']),
+        ...mapState(useCollectionsStore, ['getCards']),
     },
 };
 </script>

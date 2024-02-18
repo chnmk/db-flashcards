@@ -50,8 +50,11 @@ export const useCollectionsStore = defineStore('collections', {
             },
             {
                 id: 2,
-                name: "My Collection",
+                name: "Default",
                 owner: "Edward",
+                cards: [{
+                    Name: "aba"
+                }]
             },
             {
                 id: 3,
@@ -67,4 +70,7 @@ export const useCollectionsStore = defineStore('collections', {
         }
 
     },
+    getters: {
+        getCards: (state) => state.collections.map(c => c.cards).filter(c => c !== undefined)
+      },
   })

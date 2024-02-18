@@ -12,7 +12,7 @@ export const useUsersStore = defineStore('users', {
                     id: 2,
                     name: "Serj"
                 },
-            ]
+            ],
         }
     },
   })
