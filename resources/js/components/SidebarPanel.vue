@@ -12,6 +12,8 @@
 <script>
 import SidebarNav from './SidebarNav.vue'
 import SidebarItem from './SidebarItem.vue'
+import { mapState } from 'pinia'
+import { useCollectionsStore } from '../store/collections'
 
 export default {
     props: ['sidebarOpen'],
@@ -19,29 +21,8 @@ export default {
         SidebarNav,
         SidebarItem
     },
-    data() {
-        return {
-            collections: [
-                {
-                    id: 1,
-                    name: "Default"
-                },
-                {
-                    id: 2,
-                    name: "My Collection"
-                },
-            ],
-            users: [
-                {
-                    id: 1,
-                    name: "Edward"
-                },
-                {
-                    id: 2,
-                    name: "Serj"
-                },
-            ]
-        }
-    }
+    computed: {
+        ...mapState(useCollectionsStore, ['collections', 'users']),
+    },
 }
 </script>
