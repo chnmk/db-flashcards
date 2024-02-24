@@ -1,5 +1,5 @@
 <template>
-    <div class="cursor-pointer hover:bg-yellow-300 transition duration-300 ease-in-out">
+    <div @click="active = 'Users'" class="cursor-pointer hover:bg-yellow-300 transition duration-300 ease-in-out">
         <svg class="h-16 w-6 mx-6 inline" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
             <path
@@ -9,7 +9,7 @@
             Users
         </span>
     </div>
-    <div class="cursor-pointer hover:bg-yellow-300 transition duration-300 ease-in-out">
+    <div @click="active = 'Collections'" class="cursor-pointer hover:bg-yellow-300 transition duration-300 ease-in-out">
         <svg class="h-16 w-6 mx-6 inline" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
             <path
@@ -20,3 +20,14 @@
         </span>
     </div>
 </template>
+
+<script>
+import { mapWritableState } from 'pinia'
+import { useSettingsStore } from '../store/settings'
+
+export default {
+    computed: {
+        ...mapWritableState(useSettingsStore, ['active'])
+    },
+}
+</script>

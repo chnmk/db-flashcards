@@ -4,7 +4,12 @@
         <div class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200" v-if="sidebarOpen">
             <SidebarNav />
             <hr class="mx-6 border-yellow-500" />
-            <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" />
+            <div v-if="active == 'Collections'">
+                <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" />
+            </div>
+            <div v-if="active == 'Users'">
+                <SidebarItem v-for="u in users" :key="u.id" :name="u.name" />
+            </div>
         </div>
     </transition>
 </template>
@@ -15,6 +20,7 @@ import SidebarItem from './SidebarItem.vue'
 import { mapState } from 'pinia'
 import { useCollectionsStore } from '../store/collections'
 import { useUsersStore } from '../store/users'
+import { useSettingsStore } from '../store/settings'
 
 export default {
     props: ['sidebarOpen'],
@@ -24,7 +30,8 @@ export default {
     },
     computed: {
         ...mapState(useCollectionsStore, ['collections']),
-        ...mapState(useUsersStore, ['users'])
+        ...mapState(useUsersStore, ['users']),
+        ...mapState(useSettingsStore, ['active'])
     },
 }
 </script>
