@@ -5,6 +5,10 @@ export const useUsersStore = defineStore("users", {
     return {
       users: [
         {
+          id: 0,
+          name: "All Users",
+        },
+        {
           id: 1,
           name: "Edward",
         },
