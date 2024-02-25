@@ -3,7 +3,9 @@ import { defineStore } from "pinia";
 export const useSettingsStore = defineStore("settings", {
   state: () => {
     return {
-      active: "Collections",
+      panelDisplay: "Collections",
+      currentUser: "All Users",
+      currentCollection: "Welcome",
     };
   },
 });

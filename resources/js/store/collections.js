@@ -5,6 +5,11 @@ export const useCollectionsStore = defineStore("collections", {
     return {
       collections: [
         {
+          id: 0,
+          name: "Welcome",
+          owner: "All Users",
+        },
+        {
           id: 1,
           name: "My Collection",
           owner: "Edward",

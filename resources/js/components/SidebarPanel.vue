@@ -4,10 +4,10 @@
         <div class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200" v-if="sidebarOpen">
             <SidebarNav />
             <hr class="mx-6 border-yellow-500" />
-            <div v-if="active == 'Collections'">
+            <div v-if="panelDisplay == 'Collections'">
                 <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" />
             </div>
-            <div v-if="active == 'Users'">
+            <div v-if="panelDisplay == 'Users'">
                 <SidebarItem v-for="u in users" :key="u.id" :name="u.name" />
             </div>
         </div>
@@ -31,7 +31,7 @@ export default {
     computed: {
         ...mapState(useCollectionsStore, ['collections']),
         ...mapState(useUsersStore, ['users']),
-        ...mapState(useSettingsStore, ['active'])
+        ...mapState(useSettingsStore, ['panelDisplay'])
     },
 }
 </script>
