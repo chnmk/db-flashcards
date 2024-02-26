@@ -5,10 +5,10 @@
             <SidebarNav />
             <hr class="mx-6 border-yellow-500" />
             <div v-if="panelDisplay == 'Collections'">
-                <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" />
+                <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" :type="'col'" />
             </div>
             <div v-if="panelDisplay == 'Users'">
-                <SidebarItem v-for="u in users" :key="u.id" :name="u.name" />
+                <SidebarItem v-for="u in users" :key="u.id" :name="u.name" :type="'user'" />
             </div>
         </div>
     </transition>
@@ -17,7 +17,7 @@
 <script>
 import SidebarNav from './SidebarNav.vue'
 import SidebarItem from './SidebarItem.vue'
-import { mapState } from 'pinia'
+import { mapState, mapWritableState } from 'pinia'
 import { useCollectionsStore } from '../store/collections'
 import { useUsersStore } from '../store/users'
 import { useSettingsStore } from '../store/settings'
@@ -31,7 +31,8 @@ export default {
     computed: {
         ...mapState(useCollectionsStore, ['collections']),
         ...mapState(useUsersStore, ['users']),
-        ...mapState(useSettingsStore, ['panelDisplay'])
+        ...mapState(useSettingsStore, ['panelDisplay']),
+        ...mapWritableState(useSettingsStore, ['currentUser', 'currentCollection'])
     },
 }
 </script>
