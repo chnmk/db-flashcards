@@ -14,21 +14,29 @@
 </template>
 
 <script>
-import { mapWritableState } from 'pinia'
+import { mapWritableState, mapState } from 'pinia'
 import { useSettingsStore } from '../store/settings'
+import { useUsersStore } from '../store/users'
+import { useCollectionsStore } from '../store/collections'
 
 export default {
     props: ['name', 'type'],
     computed: {
-        ...mapWritableState(useSettingsStore, ['panelDisplay', 'currentUser', 'currentCollection'])
+        ...mapWritableState(useSettingsStore, ['panelDisplay', 'currentUser', 'currentUserId', 'currentCollection', 'currentCollectionId']),
+        ...mapState(useUsersStore, ['getUserByName']),
+        ...mapState(useCollectionsStore, ['getColByName'])
+        // https://stackoverflow.com/questions/74936421/how-do-i-pass-a-parameter-to-pinia-getter-in-vue
     },
     methods: {
         changeState(t, n) {
             if (t === 'user') {
                 this.currentUser = n
+                this.currentUserId = this.getUserByName(n).id
             } else if (t === 'col') {
                 this.currentCollection = n
+                this.currentCollectionId = this.getColByName(n).id
             }
+            this.$router.push({ name: 'home', params: { user: this.currentUserId, id: this.currentCollectionId } })
         }
     }
 }

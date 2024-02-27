@@ -5,7 +5,9 @@ export const useSettingsStore = defineStore("settings", {
     return {
       panelDisplay: "Collections",
       currentUser: "All Users",
+      currentUserId: 0,
       currentCollection: "Welcome",
+      currentCollectionId: 0,
     };
   },
 });

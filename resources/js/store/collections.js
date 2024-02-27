@@ -87,5 +87,8 @@ export const useCollectionsStore = defineStore("collections", {
   getters: {
     getCards: (state) =>
       state.collections.map((c) => c.cards).filter((c) => c !== undefined),
+    getColByName: (state) => {
+      return (colName) => state.collections.find((col) => col.name === colName);
+    },
   },
 });

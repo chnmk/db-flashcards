@@ -19,4 +19,9 @@ export const useUsersStore = defineStore("users", {
       ],
     };
   },
+  getters: {
+    getUserByName: (state) => {
+      return (userName) => state.users.find((user) => user.name === userName);
+    },
+  },
 });
