@@ -25,7 +25,6 @@ export default {
         ...mapWritableState(useSettingsStore, ['panelDisplay', 'currentUser', 'currentUserId', 'currentCollection', 'currentCollectionId']),
         ...mapState(useUsersStore, ['getUserByName']),
         ...mapState(useCollectionsStore, ['getColByName'])
-        // https://stackoverflow.com/questions/74936421/how-do-i-pass-a-parameter-to-pinia-getter-in-vue
     },
     methods: {
         changeState(t, n) {

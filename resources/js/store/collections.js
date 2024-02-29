@@ -90,5 +90,9 @@ export const useCollectionsStore = defineStore("collections", {
     getColByName: (state) => {
       return (colName) => state.collections.find((col) => col.name === colName);
     },
+    getColsByUser: (state) => {
+      return (userName) =>
+        state.collections.filter((col) => col.owner === userName);
+    },
   },
 });
