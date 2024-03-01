@@ -63,7 +63,7 @@ export const useCollectionsStore = defineStore("collections", {
         },
         {
           id: 2,
-          name: "Default",
+          name: "Default Edward",
           owner: "Edward",
           cards: [
             {
