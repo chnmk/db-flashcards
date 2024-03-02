@@ -98,14 +98,19 @@ export const useCollectionsStore = defineStore("collections", {
     };
   },
   getters: {
+    /*
     getCards: (state) =>
       state.collections.map((c) => c.cards).filter((c) => c !== undefined),
+      */
     getColByName: (state) => {
       return (colName) => state.collections.find((col) => col.name === colName);
     },
     getColsByUser: (state) => {
       return (userName) =>
         state.collections.filter((col) => col.owner === userName);
+    },
+    getCardsByCol: (state) => {
+      return (col) => state.collections.find((cards) => cards.id === col).cards;
     },
   },
 });
