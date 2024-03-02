@@ -94,6 +94,47 @@ export const useCollectionsStore = defineStore("collections", {
           name: "Short",
           owner: "Serj",
         },
+        {
+          id: 5,
+          name: "Scroll 1",
+          owner: "Serj",
+        },
+        {
+          id: 6,
+          name: "Scroll 2",
+          owner: "Serj",
+        },
+        {
+          id: 7,
+          name: "Scroll 3",
+          owner: "Serj",
+        },
+        {
+          id: 8,
+          name: "Very Long Name Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          owner: "Serj",
+        },
+        {
+          id: 9,
+          name: "Scroll 4",
+          owner: "Serj",
+        },
+        {
+          id: 10,
+          name: "Scroll 5",
+          owner: "Serj",
+        },
+        // TODO: check why collections stop displaying properly here
+        {
+          id: 11,
+          name: "Scroll 6",
+          owner: "Serj",
+        },
+        {
+          id: 12,
+          name: "Scroll 7",
+          owner: "Serj",
+        },
       ],
     };
   },
