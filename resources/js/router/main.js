@@ -8,6 +8,10 @@ export default createRouter({
       name: "home",
       component: DatacardsField,
     },
+    {
+      path: "/",
+      redirect: "/0/0",
+    },
   ],
   history: createWebHistory(),
 });

@@ -8,6 +8,19 @@ export const useCollectionsStore = defineStore("collections", {
           id: 0,
           name: "Welcome",
           owner: "All Users",
+          cards: [
+            {
+              Name: "Hello, World!",
+              Description: "This is a description.",
+              Tags: ["default"],
+              Contents: [
+                {
+                  Category: "Example category",
+                  Entries: ["Example entry"],
+                },
+              ],
+            },
+          ],
         },
         {
           id: 1,
