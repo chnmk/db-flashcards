@@ -1,8 +1,14 @@
 <template>
-    <div class="flex flex-col items-center gap-16 my-32">
-        <SingleDatacard v-for="c in getCardsByCol(currentCollectionId)" :key="c.Name" :Name="c.Name"
-            :Description="c.Description" :Tags="c.Tags" :Contents="c.Contents" />
+    <div>
+        <div v-if="getCardsByCol(currentCollectionId)" class="flex flex-col items-center gap-16 my-32">
+            <SingleDatacard v-for="c in getCardsByCol(currentCollectionId)" :key="c.Name" :Name="c.Name"
+                :Description="c.Description" :Tags="c.Tags" :Contents="c.Contents" />
+        </div>
+        <div v-else class="flex flex-col items-center gap-16 my-32">
+            <SingleDatacard :Name="'Nothing Here Yet!'" />
+        </div>
     </div>
+
 </template>
 
 <script>
