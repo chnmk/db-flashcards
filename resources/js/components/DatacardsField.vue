@@ -13,17 +13,27 @@
 
 <script>
 import SingleDatacard from './SingleDatacard.vue'
-import { mapState } from 'pinia'
+import { mapState, mapWritableState } from 'pinia'
 import { useSettingsStore } from '../store/settings'
 import { useCollectionsStore } from '../store/collections'
+import { useUsersStore } from '../store/users'
 
 export default {
     components: {
         SingleDatacard
     },
     computed: {
-        ...mapState(useSettingsStore, ['currentCollectionId']),
-        ...mapState(useCollectionsStore, ['getCardsByCol']),
+        ...mapWritableState(useSettingsStore, ['currentCollectionId', 'currentUserId', 'currentCollection', 'currentUser']),
+        ...mapState(useCollectionsStore, ['getCardsByCol', 'getColById']),
+        ...mapState(useUsersStore, ['getUserById']),
     },
+    mounted() {
+        console.log(this.$route.params.id)
+        console.log(this.$route.params.user)
+        this.currentCollectionId = Number(this.$route.params.id)
+        this.currentUserId = Number(this.$route.params.user)
+        this.currentCollection = this.getColById(Number(this.$route.params.id)).name
+        this.currentUser = this.getUserById(Number(this.$route.params.user)).name
+    }
 };
 </script>
