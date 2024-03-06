@@ -4,13 +4,13 @@
         <div class="fixed inset-y-0 top-16 w-64 h-full bg-yellow-200 overflow-auto" v-if="sidebarOpen">
             <SidebarNav />
             <hr class="mx-6 border-yellow-500" />
-            <div v-if="panelDisplay === 'Collections' && currentUser !== 'All Users'">
+            <div v-if="panelDisplay === 'Collections' && currentUser !== 'All Users'" class="mb-24">
                 <SidebarItem v-for="c in getColsByUser(currentUser)" :key="c.id" :name="c.name" :type="'col'" />
             </div>
-            <div v-if="panelDisplay === 'Collections' && currentUser === 'All Users'">
+            <div v-if="panelDisplay === 'Collections' && currentUser === 'All Users'" class="mb-24">
                 <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" :type="'col'" />
             </div>
-            <div v-if="panelDisplay === 'Users'">
+            <div v-if="panelDisplay === 'Users'" class="mb-24">
                 <SidebarItem v-for="u in users" :key="u.id" :name="u.name" :type="'user'" />
             </div>
         </div>

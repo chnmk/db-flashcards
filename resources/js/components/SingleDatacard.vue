@@ -3,7 +3,7 @@
         class="w-96 sm:w-144 h-72 col-start-4 col-span-6 bg-emerald-200 hover:bg-emerald-500 transition duration-300 ease-in-out">
         <div>
             <div
-                class="my-4 mx-8 py-2 max-h-28 overflow-scroll hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">
+                class="my-4 mx-8 py-2 max-h-28 overflow-auto hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">
                 <h1 class="text-center text-lg">
                     <strong>{{ Name }}</strong>
                 </h1>
@@ -15,7 +15,7 @@
                 </span>
             </div>
             <div
-                class="my-4 mx-8 py-2 max-h-28 overflow-scroll hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">
+                class="my-4 mx-8 py-2 max-h-28 overflow-auto hover:shadow-md hover:bg-emerald-400 transition duration-300 ease-in-out">
                 <dl v-for="dl in Contents" :key="dl.Category" class="my-2">
                     <dt class="mx-2">
                         <strong>
@@ -36,4 +36,3 @@ export default {
     props: ['Name', 'Description', 'Tags', 'Contents']
 }
 </script>
-
