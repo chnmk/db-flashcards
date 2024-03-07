@@ -152,5 +152,8 @@ export const useCollectionsStore = defineStore("collections", {
     getColById: (state) => {
       return (colId) => state.collections.find((col) => col.id === colId);
     },
+    getUsersWithCols: (state) => {
+      return [...new Set(state.collections.map((col) => col.owner))];
+    },
   },
 });

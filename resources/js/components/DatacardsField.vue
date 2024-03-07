@@ -28,8 +28,6 @@ export default {
         ...mapState(useUsersStore, ['getUserById']),
     },
     mounted() {
-        console.log(this.$route.params.id)
-        console.log(this.$route.params.user)
         this.currentCollectionId = Number(this.$route.params.id)
         this.currentUserId = Number(this.$route.params.user)
         this.currentCollection = this.getColById(Number(this.$route.params.id)).name

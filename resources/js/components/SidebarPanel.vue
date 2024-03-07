@@ -11,7 +11,7 @@
                 <SidebarItem v-for="c in collections" :key="c.id" :name="c.name" :type="'col'" />
             </div>
             <div v-if="panelDisplay === 'Users'" class="mb-24">
-                <SidebarItem v-for="u in users" :key="u.id" :name="u.name" :type="'user'" />
+                <SidebarItem v-for="u in getUsersWithCols" :key="u" :name="u" :type="'user'" />
             </div>
         </div>
     </transition>
@@ -22,7 +22,7 @@ import SidebarNav from './SidebarNav.vue'
 import SidebarItem from './SidebarItem.vue'
 import { mapState, mapWritableState } from 'pinia'
 import { useCollectionsStore } from '../store/collections'
-import { useUsersStore } from '../store/users'
+// import { useUsersStore } from '../store/users'
 import { useSettingsStore } from '../store/settings'
 
 export default {
@@ -32,10 +32,13 @@ export default {
         SidebarItem
     },
     computed: {
-        ...mapState(useCollectionsStore, ['collections', 'getColsByUser']),
-        ...mapState(useUsersStore, ['users']),
+        ...mapState(useCollectionsStore, ['collections', 'getColsByUser', 'getUsersWithCols']),
+        // ...mapState(useUsersStore, ['users']),
         ...mapState(useSettingsStore, ['panelDisplay']),
         ...mapWritableState(useSettingsStore, ['currentUser', 'currentCollection'])
     },
+    mounted() {
+        console.log(this.getUsersWithCols)
+    }
 }
 </script>
