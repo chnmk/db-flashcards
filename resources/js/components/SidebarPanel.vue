@@ -36,9 +36,6 @@ export default {
         // ...mapState(useUsersStore, ['users']),
         ...mapState(useSettingsStore, ['panelDisplay']),
         ...mapWritableState(useSettingsStore, ['currentUser', 'currentCollection'])
-    },
-    mounted() {
-        console.log(this.getUsersWithCols)
     }
 }
 </script>
