@@ -7,12 +7,16 @@
         <div v-else class="flex flex-col items-center gap-16 my-32">
             <SingleDatacard :Name="'Nothing Here Yet!'" />
         </div>
+        <div v-if="showPostPopup">
+            <PopupNewPost />
+        </div>
     </div>
 
 </template>
 
 <script>
 import SingleDatacard from './SingleDatacard.vue'
+import PopupNewPost from './PopupNewPost.vue'
 import { mapState, mapWritableState } from 'pinia'
 import { useSettingsStore } from '../store/settings'
 import { useCollectionsStore } from '../store/collections'
@@ -20,10 +24,12 @@ import { useUsersStore } from '../store/users'
 
 export default {
     components: {
-        SingleDatacard
+        SingleDatacard,
+        PopupNewPost
     },
     computed: {
         ...mapWritableState(useSettingsStore, ['currentCollectionId', 'currentUserId', 'currentCollection', 'currentUser']),
+        ...mapState(useSettingsStore, ['showPostPopup']),
         ...mapState(useCollectionsStore, ['getCardsByCol', 'getColById']),
         ...mapState(useUsersStore, ['getUserById']),
     },

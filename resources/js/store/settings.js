@@ -8,6 +8,7 @@ export const useSettingsStore = defineStore("settings", {
       currentUserId: 0,
       currentCollection: "Welcome",
       currentCollectionId: 0,
+      showPostPopup: false,
     };
   },
 });
