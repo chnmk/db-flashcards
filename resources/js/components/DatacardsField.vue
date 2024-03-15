@@ -7,9 +7,13 @@
         <div v-else class="flex flex-col items-center gap-16 my-32">
             <SingleDatacard :Name="'Nothing Here Yet!'" />
         </div>
-        <div v-if="showPostPopup">
-            <PopupNewPost />
-        </div>
+        <transition enter-from-class="opacity-0" leave-to-class="opacity-0"
+            enter-active-class="transition duration-300 opacity-1"
+            leave-active-class="transition duration-300 opacity-1">
+            <div v-if="showPostPopup">
+                <PopupNewPost />
+            </div>
+        </transition>
     </div>
 
 </template>
